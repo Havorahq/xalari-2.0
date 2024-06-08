@@ -1,0 +1,531 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/contracts/Agreement.sol": {
+      "lastModificationDate": 1715014916002,
+      "contentHash": "7cbfa77989332be21f697afef95429ee",
+      "sourceName": "contracts/Agreement.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Agreement",
+        "IERC20"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/contracts/PayAsYouGoAgreement.sol": {
+      "lastModificationDate": 1715014916003,
+      "contentHash": "7007dba7fc378baa590598563a9acbb1",
+      "sourceName": "contracts/PayAsYouGoAgreement.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Agreement.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "PayAsYouGoAgreement"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/contracts/FixedRateAgreement.sol": {
+      "lastModificationDate": 1715014916003,
+      "contentHash": "001a31f52a48b466be0ca5298afca268",
+      "sourceName": "contracts/FixedRateAgreement.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Agreement.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "FixedRateAgreement"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/contracts/Lock.sol": {
+      "lastModificationDate": 1713425893151,
+      "contentHash": "dacf0d5cb5b45dc83086de5bc1c26c2c",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/contracts/Xalary.sol": {
+      "lastModificationDate": 1715014916003,
+      "contentHash": "6a69e5da02d189a3ddf3988c938a880a",
+      "sourceName": "contracts/Xalary.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./FixedRateAgreement.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Xalary"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/contracts/AgreementFactory.sol": {
+      "lastModificationDate": 1715014916003,
+      "contentHash": "28c55c856f30c76a19e08e070e433946",
+      "sourceName": "contracts/AgreementFactory.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./PayAsYouGoAgreement.sol",
+        "./FixedRateAgreement.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "AgreementFactory"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/xalary-smart-contracts/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1713425827328,
+      "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/contracts/Agreement.sol": {
+      "lastModificationDate": 1715448150820,
+      "contentHash": "3c490fac2333901a5f21e6a9cf09efce",
+      "sourceName": "contracts/Agreement.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Agreement",
+        "IERC20"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/contracts/PayAsYouGoAgreement.sol": {
+      "lastModificationDate": 1715499427996,
+      "contentHash": "328de06f14627e9ca81572d7a3e35ccc",
+      "sourceName": "contracts/PayAsYouGoAgreement.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Agreement.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "PayAsYouGoAgreement"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/contracts/AgreementFactory.sol": {
+      "lastModificationDate": 1715448150820,
+      "contentHash": "beb490cb6a0b0ff4c0866b5f1aeb5335",
+      "sourceName": "contracts/AgreementFactory.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./PayAsYouGoAgreement.sol",
+        "./FixedRateAgreement.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "AgreementFactory"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/contracts/FixedRateAgreement.sol": {
+      "lastModificationDate": 1715499416256,
+      "contentHash": "04031c7461e3e488ec025411adb5754a",
+      "sourceName": "contracts/FixedRateAgreement.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Agreement.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "FixedRateAgreement"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1715146414098,
+      "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/contracts/Xalary.sol": {
+      "lastModificationDate": 1715146407481,
+      "contentHash": "6a69e5da02d189a3ddf3988c938a880a",
+      "sourceName": "contracts/Xalary.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./FixedRateAgreement.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Xalary"
+      ]
+    },
+    "/Users/davidson/Documents/dev/xalary/payrol2/smart-contracts/contracts/Lock.sol": {
+      "lastModificationDate": 1715146407480,
+      "contentHash": "dacf0d5cb5b45dc83086de5bc1c26c2c",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    }
+  }
+}
