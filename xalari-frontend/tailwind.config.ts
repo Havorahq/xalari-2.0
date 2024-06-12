@@ -13,6 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        "sharp-grotesk": ['"Sharp Grotesk"', "sans-serif"],
+        "dm-sans": ['"DM Sans"', "sans-serif"],
+      },
+      lineHeight: {
+        custom: "33px",
+      },
     },
   },
   plugins: [],

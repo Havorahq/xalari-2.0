@@ -13,17 +13,18 @@ const Onboard: React.FC = () => {
   const { firstName, lastName, businessName, businessEmail, email, activeTab } = state;
 
   return (
-    <div className="m-8 p-8 h-full flex flex-col justify-evenly overflow-y-scroll">
-      <div className="flex flex-col items-center">
+    <div className="m-8 p-8 px-16 h-full flex flex-col justify-center overflow-y-scroll">
+      <div className="flex flex-col items-start">
         <h1>Sign Up👋🏼</h1>
       </div>
 
       <div className="my-4 w-full">
-        <div className="my-2">
+        <div className="my-4">
           <label htmlFor="firstName">First Name</label>
           <input
             type="text"
             name="firstName"
+            id="firstName"
             value={firstName}
             placeholder="Enter your first name"
             onChange={onChange}
@@ -31,11 +32,12 @@ const Onboard: React.FC = () => {
             required
           />
         </div>
-        <div className="my-2">
+        <div className="my-4">
           <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
             name="lastName"
+            id="lastName"
             value={lastName}
             placeholder="Enter your last name"
             onChange={onChange}
@@ -43,11 +45,12 @@ const Onboard: React.FC = () => {
             required
           />
         </div>
-        <div className="my-2">
+        <div className="my-4">
           <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
+            id="email"
             value={email}
             placeholder="Enter your email"
             onChange={onChange}
@@ -57,11 +60,12 @@ const Onboard: React.FC = () => {
         </div>
         {activeTab === "business" && (
           <>
-            <div className="my-2">
+            <div className="my-4">
               <label htmlFor="businessName">Business Name</label>
               <input
                 type="text"
                 name="businessName"
+                id="businessName"
                 value={businessName}
                 placeholder="Enter your business name"
                 onChange={onChange}
@@ -69,11 +73,12 @@ const Onboard: React.FC = () => {
                 required
               />
             </div>
-            <div className="my-2">
+            <div className="my-4">
               <label htmlFor="businessEmail">Business Email</label>
               <input
                 type="email"
                 name="businessEmail"
+                id="businessEmail"
                 value={businessEmail}
                 placeholder="Enter your business email"
                 onChange={onChange}
@@ -86,7 +91,9 @@ const Onboard: React.FC = () => {
       </div>
 
       <div className="flex justify-center">
-        <Button onClick={() => onRouteChange("signin")}>Sign Up</Button>
+        <Button primary onClick={() => onRouteChange("signin")}>
+          Sign Up
+        </Button>
       </div>
     </div>
   );

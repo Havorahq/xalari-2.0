@@ -4,11 +4,12 @@ interface ButtonProps {
   children: React.ReactNode;
   style?: string;
   onClick: () => void;
+  primary?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, style, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ children, style, onClick, primary }) => {
   return (
-    <button className={style || "btn-primary"} onClick={onClick}>
+    <button className={`${style} ${primary && "btn-primary"}`} onClick={onClick}>
       {children}
     </button>
   );
