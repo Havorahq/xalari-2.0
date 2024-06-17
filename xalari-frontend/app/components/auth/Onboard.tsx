@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { OnboardingContext } from "../../(onboarding)/page";
+import { OnboardingContext } from "../../contexts/OnboardingContext";
 import Button from "../common/Button";
 
 const Onboard: React.FC = () => {

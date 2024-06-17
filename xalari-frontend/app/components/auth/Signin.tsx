@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { OnboardingContext } from "../../(onboarding)/page";
+import { OnboardingContext } from "../../contexts/OnboardingContext";
 import Button from "../common/Button";
 
 const Signin: React.FC = () => {
@@ -18,7 +18,7 @@ const Signin: React.FC = () => {
         <h1>Welcome 👋🏼</h1>
         <p className="">Please sign in to your account</p>
         <p className="mt-2 text-gray-400 text-xs">
-          You will be redirected to the sign up page if you don't have an
+          You will be redirected to the sign up page if you don&apos;t have an
           account
         </p>
         <div className="flex justify-center">

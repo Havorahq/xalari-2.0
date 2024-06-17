@@ -1,45 +1,26 @@
 "use client";
 
-import React, { useState, createContext, ChangeEvent } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Signin from "../components/auth/Signin";
 import Signup from "../components/auth/Signup";
 import Onboard from "../components/auth/Onboard";
-
-interface OnboardingContextType {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onRouteChange: (value: string) => void;
-  onTabChange: (value: string) => void;
-  onReset: () => void;
-  state: StateType;
-}
-
-interface StateType {
-  route: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  businessName: string;
-  businessEmail: string;
-  activeTab: string;
-}
-
-export const OnboardingContext = createContext<
-  OnboardingContextType | undefined
->(undefined);
+import { OnboardingProvider, OnboardingContext } from "../contexts/OnboardingContext";
 
 const Onboarding: React.FC = () => {
-  const [state, setState] = useState<StateType>({
-    route: "signin",
-    email: "",
-    firstName: "",
-    lastName: "",
-    businessName: "",
-    businessEmail: "",
-    activeTab: "business",
-  });
+  const context = useContext(OnboardingContext);
 
-  const { route } = state;
+  setTimeout(() => {
+
+    if (!context) {
+      return <div>Error: OnboardingContext not found</div>;
+    }
+  }, 1000)
+
+  const { state } = context || {};
+  const { route } = state || { route: "signin" };
+
+  console.log("Route2: ", route);
 
   const renderPages = () => {
     switch (route) {
@@ -54,51 +35,12 @@ const Onboarding: React.FC = () => {
     }
   };
 
-  const onRouteChange = (value: string) => {
-    setState((state) => ({
-      ...state,
-      route: value,
-    }));
-  };
-
-  const onTabChange = (value: string) => {
-    setState((state) => ({
-      ...state,
-      activeTab: value,
-    }));
-  };
-
-  const onReset = () => {
-    setState((state) => ({
-      ...state,
-      email: "",
-      firstName: "",
-      lastName: "",
-      businessName: "",
-      businessEmail: "",
-    }));
-  };
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setState((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
   return (
-    <OnboardingContext.Provider
-      value={{ onChange, onRouteChange, onTabChange, onReset, state }}
-    >
+    <OnboardingProvider>
       <div className="flex h-full w-full justify-center">
         <div className="flex h-full w-4/5 flex-col justify-evenly p-8 px-16 text-white md:w-1/2 primary-bg">
           <div className="flex items-center gap-4">
-            <Image
-              src="/icons/brandLogo.png"
-              alt="Brand icon"
-              width={50}
-              height={50}
-            />
+            <Image src="/icons/brandLogo.png" alt="Brand icon" width={50} height={50} />
             <h1 className="text-2xl font-bold">Xalari</h1>
           </div>
           <div>
@@ -108,26 +50,18 @@ const Onboarding: React.FC = () => {
               blockchain!
             </p>
             <p className="mt-2 text-sm leading-6">
-              Revolutionize Payroll Management with Blockchain Technology!
-              Discover a secure, transparent, and efficient way to handle
-              payroll, ensuring accuracy, trust, and simplicity for businesses
-              of all sizes.
+              Revolutionize Payroll Management with Blockchain Technology! Discover a secure, transparent,
+              and efficient way to handle payroll, ensuring accuracy, trust, and simplicity for businesses of
+              all sizes.
             </p>
           </div>
           <div className="self-center">
-            <Image
-              src="/images/calculator.png"
-              alt="Calculator image"
-              width={400}
-              height={350}
-            />
+            <Image src="/images/calculator.png" alt="Calculator image" width={400} height={350} />
           </div>
         </div>
-        <div className="h-full w-full bg-white text-black p-8 md:w-1/2">
-          {renderPages()}
-        </div>
+        <div className="h-full w-full bg-white text-black p-8 md:w-1/2">{renderPages()}</div>
       </div>
-    </OnboardingContext.Provider>
+    </OnboardingProvider>
   );
 };
 

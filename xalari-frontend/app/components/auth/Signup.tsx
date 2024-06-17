@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { OnboardingContext } from "../../(onboarding)/page";
+import { OnboardingContext } from "../../contexts/OnboardingContext";
 import Button from "../common/Button";
 import Image from "next/image";
 
