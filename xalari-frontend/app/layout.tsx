@@ -1,10 +1,8 @@
 "use client";
 
 import type { Metadata } from "next";
-import "@rainbow-me/rainbowkit/styles.css";
 import { Inter } from "next/font/google";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+
 import "./globals.css";
 
 // export const metadata: Metadata = {
@@ -19,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
