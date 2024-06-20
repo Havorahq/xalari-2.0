@@ -6,7 +6,7 @@ import "rsuite/dist/rsuite.min.css";
 interface CustomDatePickerProps {
   label?: string;
   value: Date | null;
-  onChange: (value: Date) => void;
+  onChange: (value: Date | null) => void;
   placeholder?: string;
   style?: React.CSSProperties;
 }
