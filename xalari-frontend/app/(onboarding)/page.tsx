@@ -5,22 +5,22 @@ import Image from "next/image";
 import Signin from "../components/auth/Signin";
 import Signup from "../components/auth/Signup";
 import Onboard from "../components/auth/Onboard";
-import { OnboardingProvider, OnboardingContext } from "../contexts/OnboardingContext";
+import {
+  OnboardingContext,
+  OnboardingProvider,
+} from "../contexts/OnboardingContext";
 
 const Onboarding: React.FC = () => {
   const context = useContext(OnboardingContext);
 
-  setTimeout(() => {
+  if (!context) {
+    return <div>Error: OnboardingContext not found</div>;
+  }
 
-    if (!context) {
-      return <div>Error: OnboardingContext not found</div>;
-    }
-  }, 1000)
+  const { state } = context;
+  const { route } = state;
 
-  const { state } = context || {};
-  const { route } = state || { route: "signin" };
-
-  console.log("Route2: ", route);
+  console.log("Route: ", route);
 
   const renderPages = () => {
     switch (route) {
@@ -36,33 +36,50 @@ const Onboarding: React.FC = () => {
   };
 
   return (
-    <OnboardingProvider>
-      <div className="flex h-full w-full justify-center">
-        <div className="flex h-full w-4/5 flex-col justify-evenly p-8 px-16 text-white md:w-1/2 primary-bg">
-          <div className="flex items-center gap-4">
-            <Image src="/icons/brandLogo.png" alt="Brand icon" width={50} height={50} />
-            <h1 className="text-2xl font-bold">Xalari</h1>
-          </div>
-          <div>
-            <p className="text-4xl font-semibold">
-              Payroll <br />
-              Management on the <br />
-              blockchain!
-            </p>
-            <p className="mt-2 text-sm leading-6">
-              Revolutionize Payroll Management with Blockchain Technology! Discover a secure, transparent,
-              and efficient way to handle payroll, ensuring accuracy, trust, and simplicity for businesses of
-              all sizes.
-            </p>
-          </div>
-          <div className="self-center">
-            <Image src="/images/calculator.png" alt="Calculator image" width={400} height={350} />
-          </div>
+    <div className="flex h-full w-full justify-center">
+      <div className="flex h-full w-4/5 flex-col justify-evenly p-8 px-16 text-white md:w-1/2 primary-bg">
+        <div className="flex items-center gap-4">
+          <Image
+            src="/icons/brandLogo.png"
+            alt="Brand icon"
+            width={50}
+            height={50}
+          />
+          <h1 className="text-2xl font-bold">Xalari</h1>
         </div>
-        <div className="h-full w-full bg-white text-black p-8 md:w-1/2">{renderPages()}</div>
+        <div>
+          <p className="text-4xl font-semibold">
+            Payroll <br />
+            Management on the <br />
+            blockchain!
+          </p>
+          <p className="mt-2 text-sm leading-6">
+            Revolutionize Payroll Management with Blockchain Technology!
+            Discover a secure, transparent, and efficient way to handle payroll,
+            ensuring accuracy, trust, and simplicity for businesses of all
+            sizes.
+          </p>
+        </div>
+        <div className="self-center">
+          <Image
+            src="/images/calculator.png"
+            alt="Calculator image"
+            width={400}
+            height={350}
+          />
+        </div>
       </div>
-    </OnboardingProvider>
+      <div className="h-full w-full bg-white text-black p-8 md:w-1/2">
+        {renderPages()}
+      </div>
+    </div>
   );
 };
 
-export default Onboarding;
+const OnboardingPage = () => (
+  <OnboardingProvider>
+    <Onboarding />
+  </OnboardingProvider>
+);
+
+export default OnboardingPage;
