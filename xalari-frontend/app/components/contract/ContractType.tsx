@@ -4,7 +4,8 @@ import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Button from "../common/Button";
 import { FaChevronRight } from "react-icons/fa";
-import { ContractContext, ContractState } from "@/app/create-contract/page";
+import { ContractContext, ContractState } from "@/app/contexts/ContractContext";
+// import { ContractContext, ContractState } from "@/app/create-contract/page";
 
 interface ContractTypeProps {
   setState: React.Dispatch<React.SetStateAction<ContractState>>;

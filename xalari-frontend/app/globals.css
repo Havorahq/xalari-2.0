@@ -37,7 +37,7 @@ html,
 body {
   height: 100vh !important;
   width: 100vw !important;
-  /* overflow-y: hidden; */
+  /* overflow-y: scroll; */
 }
 
 
@@ -72,11 +72,11 @@ input,
 }
 
 button {
-  border-radius: 4px;
+  border-radius: 4px !important;
   border: none;
   background: #eee;
   margin-block: 2em;
-  padding: 0.8em 1.6em;
+  padding: 1em 1.6em;
   width: 100%;
 }
 
@@ -93,7 +93,7 @@ button:disabled {
 }
 
 .overflow-hidden-forced {
-  overflow-y: hidden;
+  overflow-y: hidden !important;
 }
 
 .overflow-forced {

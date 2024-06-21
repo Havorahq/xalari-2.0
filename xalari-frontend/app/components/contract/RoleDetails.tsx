@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useContext } from "react";
-import { ContractContext } from "@/app/create-contract/page";
 import Button from "../common/Button";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import Input from "../common/Input";
 // import { DatePicker } from "rsuite";
 // import Datepicker from "../common/Datepicker";
 import CustomDatePicker from "../common/Datepicker";
+import { ContractContext } from "@/app/contexts/ContractContext";
 
 const RoleDetails: React.FC = () => {
   const {

@@ -19,7 +19,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   style,
 }) => {
   return (
-    <div style={{ marginBottom: "16px" }}>
+    <div style={{ marginBottom: "16px" }} className="overflow-forced">
       {label && <p className="text-grey-500 text-medium text-md mb-1">{label}</p>}
       <DatePicker
         value={value}

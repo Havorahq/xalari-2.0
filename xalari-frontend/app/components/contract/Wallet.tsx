@@ -1,19 +1,26 @@
 "use client";
 
 import React, { useContext } from "react";
-import { ContractContext } from "@/app/create-contract/page";
 import Button from "../common/Button";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { ContractContext } from "@/app/contexts/ContractContext";
 
 const Wallet: React.FC = () => {
   const { onChange, handleNext, handlePrev, state } =
     useContext(ContractContext)!;
 
   return (
-    <div className="flex flex-col gap-4">
-      <div>
+    <div className="flex flex-col m-8 p-8 h-full justify-center gap-12">
+      <span
+        className="flex items-center gap-2 text-primary cursor-pointer"
+        onClick={handlePrev}
+      >
+        <FaChevronLeft />
+        <p className="text-xs">Previous</p>
+      </span>
+      <div className="flex flex-col items-start">
         <h1>Wallet Details</h1>
-        <p className="text-xs font-light">Fill in your wallet details below</p>
+        <p className="text-xs font-light text-grey">Fill in your wallet details below</p>
       </div>
       <div className="flex flex-col gap-4">
         <input
@@ -26,17 +33,18 @@ const Wallet: React.FC = () => {
         />
       </div>
       <div className="flex justify-between mt-4">
-        <Button
+        {/* <Button
           text="Back"
           iconLeft={<FaChevronLeft size={14} />}
           onClick={handlePrev}
-        />
+        /> */}
         <Button
-          text="Next"
-          iconRight={<FaChevronRight size={14} />}
           onClick={handleNext}
           disabled={!state.walletAddress}
-        />
+          primary
+        >
+          Continue
+        </Button>
       </div>
     </div>
   );

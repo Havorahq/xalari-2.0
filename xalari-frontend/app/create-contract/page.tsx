@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode, useContext } from "react";
 import Image from "next/image";
 import moment from "moment";
 import ContractType from "../components/contract/ContractType";
@@ -9,105 +9,16 @@ import RoleDetails from "../components/contract/RoleDetails";
 import Payments from "../components/contract/Payments";
 import Wallet from "../components/contract/Wallet";
 import ContractDetails from "../components/contract/ContractDetails";
-
-export interface ContractState {
-  step: number;
-  contractType: string;
-  employeeName: string;
-  employeeEmail: string;
-  jobTitle: string;
-  jobDescription: string;
-  startDate: Date | null;
-  endDate: Date | null;
-  monthlyRate: string;
-  milestoneTitles: string[];
-  milestoneRates: string[];
-  walletAddress: string;
-  isPasswordShown: boolean;
-  contractAddress?: string;
-}
-
-interface ContractContextProps {
-  handleNext: () => void;
-  handlePrev: () => void;
-  onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onFromDateChange: (date: Date | null) => void;
-  onToDateChange: (date: Date | null) => void;
-  state: ContractState;
-}
-
-export const ContractContext = createContext<ContractContextProps | undefined>(
-  undefined
-);
+import { ContractContext, ContractProvider } from "../contexts/ContractContext";
 
 const Contract: React.FC = () => {
-  const [state, setState] = useState<ContractState>({
-    step: 0,
-    contractType: "",
-    employeeName: "",
-    employeeEmail: "",
-    jobTitle: "",
-    jobDescription: "",
-    startDate: null,
-    endDate: null,
-    monthlyRate: "",
-    milestoneTitles: [],
-    milestoneRates: [],
-    walletAddress: "",
-    isPasswordShown: false,
-  });
+  const context = useContext(ContractContext)
 
-  const handleNext = () => {
-    if (state.step < 5) {
-      setState((prevState) => ({
-        ...prevState,
-        step: prevState.step + 1,
-      }));
-    }
-  };
+  if (!context) {
+    return <div>Error: ContractContext not found</div>;
+  }
 
-  const handlePrev = () => {
-    setState((prevState) => ({
-      ...prevState,
-      step: prevState.step - 1,
-    }));
-  };
-
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setState((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  // const onFromDateChange = (date: Date) => {
-  //   const value = moment(new Date(date)).format("YYYY-MM-DD");
-  //   setState((prevState) => ({
-  //     ...prevState,
-  //     startDate: value !== "1970-01-01" ? value : "",
-  //   }));
-  // };
-
-
-  // const onToDateChange = (date: Date) => {
-  //   const value = moment(new Date(date)).format("YYYY-MM-DD");
-  //   setState((prevState) => ({
-  //     ...prevState,
-  //     endDate: value !== "1970-01-01" ? value : "",
-  //   }));
-  // };
-
-   const onFromDateChange = (date: Date | null) => {
-     setState((prevState) => ({ ...prevState, startDate: date }));
-   };
-
-   const onToDateChange = (date: Date | null) => {
-     setState((prevState) => ({ ...prevState, endDate: date }));
-   };
+  const { setState, state } = context;
 
   const details = [
     {
@@ -160,16 +71,7 @@ const Contract: React.FC = () => {
   };
 
   return (
-    <ContractContext.Provider
-      value={{
-        handleNext,
-        handlePrev,
-        onChange,
-        onFromDateChange,
-        onToDateChange,
-        state,
-      }}
-    >
+    <>
       <div className="flex justify-center h-full w-full">
         <div className="flex h-full w-4/5 flex-col justify-evenly p-8 px-16 text-white md:w-1/2 primary-bg overflow-hidden-forced">
           <div className="flex items-center gap-2">
@@ -198,12 +100,18 @@ const Contract: React.FC = () => {
             />
           </div>
         </div>
-        <div className="h-full w-full bg-white text-black p-8 md:w-1/2 overflow-forced">
+        <div className="h-full w-full bg-white text-black p-8 pb-12 md:w-1/2 overflow-forced">
           {renderStep()}
         </div>
       </div>
-    </ContractContext.Provider>
+    </>
   );
 };
 
-export default Contract;
+const ContractPage = () => (
+  <ContractProvider>
+    <Contract />
+  </ContractProvider>
+)
+
+export default ContractPage;
