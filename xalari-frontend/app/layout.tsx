@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import "rsuite/DatePicker/styles/index.css";
+import "sweetalert2/src/sweetalert2.scss";
 
 // export const metadata: Metadata = {
 //   title: "Xalari",

@@ -69,7 +69,7 @@ const Onboarding: React.FC = () => {
           />
         </div>
       </div>
-      <div className="h-full w-full bg-white text-black p-8 md:w-1/2">
+      <div className="h-full w-full authBg text-black p-8 md:w-1/2">
         {renderPages()}
       </div>
     </div>

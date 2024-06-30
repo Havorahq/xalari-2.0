@@ -29,7 +29,7 @@ const Signup: React.FC = () => {
           <div
             className={`p-4 rounded cursor-pointer flex items-center gap-3 ${
               activeTab === "business" ? "activeTab" : "border"
-            }`}
+            } hover:border-1 hover:border-gray-600`}
             onClick={() => {
               onTabChange("business");
               onReset();
@@ -42,9 +42,7 @@ const Signup: React.FC = () => {
               height={36}
             />
             <div>
-              <h2 className="text-xs font-medium text-left">
-                Business
-              </h2>
+              <h2 className="text-xs font-medium text-left">Business</h2>
               <p className="font-dm-sans text-[10px] font-normal leading-4 text-left">
                 Sign In As a Business
               </p>
@@ -53,7 +51,7 @@ const Signup: React.FC = () => {
           <div
             className={`p-4 rounded cursor-pointer flex items-center gap-3 ${
               activeTab === "employee" ? "border-2 border-blue-500" : "border"
-            }`}
+            } hover:border-1 hover:border-gray-600`}
             onClick={() => {
               onTabChange("employee");
               onReset();
@@ -66,9 +64,7 @@ const Signup: React.FC = () => {
               height={36}
             />
             <div>
-              <h2 className="text-xs font-medium text-left">
-                Employee
-              </h2>
+              <h2 className="text-xs font-medium text-left">Employee</h2>
               <p className="font-dm-sans text-[10px] font-normal leading-4 text-left">
                 Sign In As an Employee
               </p>
