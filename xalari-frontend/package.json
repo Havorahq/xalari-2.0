@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.4",
     "ethers": "^6.13.0",
     "moment": "^2.30.1",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-loader-spinner": "^6.1.6",
     "rsuite": "^5.64.1",
+    "sass": "^1.77.6",
+    "sweetalert2": "^11.12.1",
     "wagmi": "^1.4.13",
     "zustand": "^4.5.2"
   },

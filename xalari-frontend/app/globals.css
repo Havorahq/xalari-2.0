@@ -17,6 +17,8 @@
   --space-lg: 2rem;
   --space-xl: 3.25rem;
   --space-2xl: 5rem;
+
+  --color-green: #1EB62D;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,18 +39,18 @@ html,
 body {
   height: 100vh !important;
   width: 100vw !important;
+  color: #131414;
   /* overflow-y: scroll; */
 }
 
-
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 h1 {
@@ -87,9 +89,34 @@ button:disabled {
 
 .btn-primary {
   /* background: linear-gradient(338.14deg, #3b37ff -3.56%, #ff7a21 119.15%); */
-  background: linear-gradient(90.55deg, #FF7418 -76.45%, #232199 107.58%);
+  background: linear-gradient(90.55deg, #ff7418 -76.45%, #232199 107.58%);
   color: #fff;
   font-weight: 600;
+}
+
+.btn-secondary {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-xs);
+  border: 1px solid #de6f48;
+  background: var(--color-white);
+  border-radius: var(--space-sm);
+  /* color: linear-gradient(90.55deg, #FF7418 -76.45%, #232199 107.58%) !important; */
+  margin-right: var(--space-md);
+  cursor: pointer;
+  color: #1d1d1f;
+  border: 1px solid #dbe1eb !important;
+}
+
+.filter-active {
+  border: 1px solid #232199 !important;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-xs);
+  background: var(--color-white);
+  border-radius: var(--space-sm);
+  color: linear-gradient(90.55deg, #ff7418 -76.45%, #232199 107.58%) !important;
+  color: #232199;
+  margin-right: var(--space-md);
+  cursor: pointer;
 }
 
 .overflow-hidden-forced {
@@ -117,7 +144,8 @@ button:disabled {
   border-color: #0f0e7a;
 }
 
-.primary-bg {
+.primary-bg,
+.bg-primary {
   background: linear-gradient(338.14deg, #3b37ff -3.56%, #ff7a21 119.15%);
 }
 
@@ -132,6 +160,93 @@ button:disabled {
 
 .text-2xs {
   font-size: 10px;
+}
+
+.h-fit {
+  height: inherit !important;
+}
+
+.authBg {
+  background: url("/images/authBg.png") no-repeat center fixed;
+  background-size: cover;
+}
+
+.tableContainer {
+  width: inherit;
+  overflow-x: scroll !important;
+}
+
+table {
+  width: 100%;
+  overflow-x: scroll !important;
+
+  thead {
+    color: var(--color-white);
+    border-radius: var(--space-xs);
+    margin-inline: -50px;
+    color: var(--color-black-2);
+    font-weight: 400;
+  }
+
+  th {
+    padding-block: var(--space-xs);
+    padding-right: var(--space-sm);
+    text-align: left;
+  }
+
+  tr {
+    margin-block: var(--space-ml) !important;
+    padding: var(--space-ml) !important;
+  }
+
+  td {
+    padding-block: var(--space-md);
+    padding-right: var(--space-sm);
+    color: var(--color-black-2);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.tabactive {
+  color: var(--color-green) !important;
+  /* background-color: #c9f7f5; */
+  background: #EAFCFB;
+  font-size: 11.7px;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.tabinactive {
+  color: #f64e60;
+  background-color: #ffe2e5;
+  font-size: 11.7px;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.tabpending {
+  color: #ffa800;
+  background-color: #fff4de;
+  font-size: 11.7px;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.tabgrey {
+  color: #5e5e5e;
+  background-color: #e4e6ef;
+  font-size: 11.7px;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 5px 8px;
+  text-align: center;
+  border: none;
 }
 
 @layer utilities {

@@ -1,4 +1,5 @@
 import React, { createContext, useState, ChangeEvent, ReactNode } from "react";
+import Swal from "sweetalert2";
 
 export interface ContractState {
   step: number;
@@ -20,6 +21,7 @@ export interface ContractState {
 interface ContractContextProps {
   handleNext: () => void;
   handlePrev: () => void;
+  comingSoon: () => void;
   onChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -83,6 +85,14 @@ export const ContractProvider = ({ children }: { children: ReactNode }) => {
       setState((prevState) => ({ ...prevState, endDate: date }));
     };
 
+    const comingSoon = () => {
+      Swal.fire({
+        title: "Coming soon",
+        text: "This feature will be available soon",
+        icon: "info",
+      });
+    };
+
     return (
       <ContractContext.Provider
         value={{
@@ -91,6 +101,7 @@ export const ContractProvider = ({ children }: { children: ReactNode }) => {
           onChange,
           onFromDateChange,
           onToDateChange,
+          comingSoon,
           setState,
           state,
         }}

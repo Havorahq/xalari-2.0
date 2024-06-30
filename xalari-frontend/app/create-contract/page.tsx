@@ -10,6 +10,7 @@ import Payments from "../components/contract/Payments";
 import Wallet from "../components/contract/Wallet";
 import ContractDetails from "../components/contract/ContractDetails";
 import { ContractContext, ContractProvider } from "../contexts/ContractContext";
+import Swal from "sweetalert2";
 
 const Contract: React.FC = () => {
   const context = useContext(ContractContext)
@@ -52,6 +53,7 @@ const Contract: React.FC = () => {
       asset: "wallet.png",
     },
   ];
+
 
   const renderStep = () => {
     switch (state.step) {
@@ -100,7 +102,7 @@ const Contract: React.FC = () => {
             />
           </div>
         </div>
-        <div className="h-full w-full bg-white text-black p-8 pb-12 md:w-1/2 overflow-forced">
+        <div className="h-full w-full authBg text-black p-8 pb-12 md:w-1/2 overflow-forced">
           {renderStep()}
         </div>
       </div>

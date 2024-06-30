@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "../common/Button";
 import { FaChevronRight } from "react-icons/fa";
 import { ContractContext, ContractState } from "@/app/contexts/ContractContext";
+import Swal from "sweetalert2";
 // import { ContractContext, ContractState } from "@/app/create-contract/page";
 
 interface ContractTypeProps {
@@ -12,7 +13,7 @@ interface ContractTypeProps {
 }
 
 const ContractType: React.FC<ContractTypeProps> = ({ setState }) => {
-  const { onChange, handleNext, handlePrev, state } =
+  const { onChange, handleNext, handlePrev, comingSoon, state } =
     useContext(ContractContext)!;
   const [activeTab, setActiveTab] = useState<string>("");
 
@@ -20,6 +21,14 @@ const ContractType: React.FC<ContractTypeProps> = ({ setState }) => {
     setActiveTab(value);
     setState({ ...state, contractType: value });
   };
+
+  // const comingSoon = () => {
+  //   Swal.fire({
+  //     title: "Coming soon",
+  //     text: "This feature will be available soon",
+  //     icon: "info",
+  //   });
+  // };
 
   return (
     <div className="flex flex-col m-8 p-8 h-full justify-center gap-12">
@@ -32,7 +41,7 @@ const ContractType: React.FC<ContractTypeProps> = ({ setState }) => {
         <div
           className={`flex justify-between items-center p-4 rounded-md cursor-pointer ${
             activeTab === "fixed" ? "activeTab" : "border"
-          }`}
+          } hover:border-1 hover:border-gray-600`}
           onClick={() => handleDivClick("fixed")}
         >
           <div className="flex items-center gap-4">
@@ -61,7 +70,7 @@ const ContractType: React.FC<ContractTypeProps> = ({ setState }) => {
         <div
           className={`flex justify-between items-center p-4 rounded-md cursor-pointer ${
             activeTab === "Pay As You Go" ? "activeTab" : "border"
-          }`}
+          } hover:border-1 hover:border-gray-600`}
           onClick={() => handleDivClick("Pay As You Go")}
         >
           <div className="flex items-center gap-4">
@@ -93,10 +102,10 @@ const ContractType: React.FC<ContractTypeProps> = ({ setState }) => {
           />
         </div>
         <div
-          className={`flex justify-between items-center p-4 rounded-md cursor-pointer ${
+          className={`flex justify-between items-center p-4 rounded-md cursor-not-allowed ${
             activeTab === "milestone" ? "activeTab" : "border"
-          }`}
-          onClick={() => handleDivClick("milestone")}
+          } hover:border-1 hover:border-gray-600`}
+          // onClick={comingSoon}
         >
           <div className="flex items-center gap-4">
             <Image

@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       >
         {children}
         <button
-          className="absolute top-2 right-2 bg-transparent border-none cursor-pointer text-gray-600"
+          className="absolute top-0 right-2 mt-0 bg-transparent border-none cursor-pointer text-gray-400"
           onClick={onClose}
         >
           <ImCancelCircle size={24} />
